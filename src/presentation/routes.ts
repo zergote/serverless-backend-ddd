@@ -1,10 +1,6 @@
-import { Router } from 'express';
+import { Router } from 'express'
 
-export class AppRoutes {
-
-  static get routes(): Router {
-    const router = Router();
-
-    return router;
-  }
+export const getRoutes = (): Router => {
+  const router = Router()
+  return router
 }

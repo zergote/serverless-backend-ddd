@@ -1,22 +1,16 @@
-import { envs } from './config/envs';
-import { AppRoutes } from './presentation/routes';
+import { envs } from './config/envs'
+import { getRoutes } from './presentation/routes'
 import { Server } from './presentation/server';
 
+(async (): Promise<void> => {
+  await main()
+})().catch(console.error)
 
+async function main (): Promise<void> {
+  const server = new Server()
 
-
-(async () => {
-  main();
-})();
-
-
-
-async function main() {
-
-  const server = new Server();
-
-  server.start({
+  await server.start({
     port: envs.PORT,
-    router: AppRoutes.routes,
-  });
+    router: getRoutes()
+  })
 }
