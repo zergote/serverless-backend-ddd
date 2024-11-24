@@ -1,5 +1,1 @@
-import { CreateClientUseCase } from './clients/create-client'
-
-export const clientUseCases = {
-  CreateClientUseCase
-}
+export { CreateClientUseCase } from './clients/create-client'
