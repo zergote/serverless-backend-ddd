@@ -14,7 +14,8 @@ export class ArrayDBClientsDatasourceImpl implements ClientsDatasource {
   }
 
   async getClientsSortByCredits (): Promise<ClientEntity[]> {
-    return dbClientsMock.sort((a, b) => b.availableCredit - a.availableCredit).map(client => new ClientEntity(client))
+    const clientsSorted = dbClientsMock.sort((a, b) => b.availableCredit - a.availableCredit).map(client => new ClientEntity(client))
+    return clientsSorted
   }
 
   async createClient (client: ClientDto): Promise<void> {

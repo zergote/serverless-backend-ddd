@@ -1,1 +1,8 @@
 export { CreateClientUseCase } from './clients/create-client'
+export { GetClientsSortByCredits } from './clients/get-clients-sort-by-credits'
+export { UpdateCredits } from './clients/update-credits'
+export { UpdateClient } from './clients/update-client'
+export { DeleteClient } from './clients/delete-client'
+export { GetClientById } from './clients/get-client-by-id'
+export { GetClients } from './clients/get-clients'
+export { GetClientByEmail } from './clients/get-client-by-email'
