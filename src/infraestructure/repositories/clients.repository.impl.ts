@@ -6,6 +6,14 @@ import { ClientDto } from '../../domain/dtos/client.dto'
 export class ClientsRepositoryImpl implements ClientsRepository {
   constructor (private readonly clientsDatasource: ClientsDatasource) { }
 
+  async updateCredits (id: string, credits: number): Promise<void> {
+    return await this.clientsDatasource.updateCredits(id, credits)
+  }
+
+  async getClientsSortByCredits (): Promise<ClientEntity[]> {
+    return await this.clientsDatasource.getClientsSortByCredits()
+  }
+
   async createClient (client: ClientDto): Promise<void> {
     return await this.clientsDatasource.createClient(client)
   }

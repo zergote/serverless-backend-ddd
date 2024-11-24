@@ -7,6 +7,16 @@ import { idGeneratorPlugin } from '../../plugins/id-generator.plugin'
 const dbClientsMock = [...clients]
 
 export class ArrayDBClientsDatasourceImpl implements ClientsDatasource {
+  async updateCredits (id: string, credits: number): Promise<void> {
+    const clientIndex = dbClientsMock.findIndex(clientSearch => clientSearch.id === id)
+    if (clientIndex === -1) return
+    dbClientsMock[clientIndex].availableCredit = credits
+  }
+
+  async getClientsSortByCredits (): Promise<ClientEntity[]> {
+    return dbClientsMock.sort((a, b) => b.availableCredit - a.availableCredit).map(client => new ClientEntity(client))
+  }
+
   async createClient (client: ClientDto): Promise<void> {
     const id = idGeneratorPlugin()
     const createdAt = new Date()
