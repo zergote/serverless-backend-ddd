@@ -1,3 +1,7 @@
+/**
+ * Representa el datasource de clientes con operaciones de emulación de base de datos. Para agregar una base de datos real, se debe implementar aqui.
+ * @interface
+ */
 import { ClientDto, ClientEntity } from '../../domain'
 import { ClientsDatasource } from '../../domain/datasources/clients.datasource'
 import clients from '../../mock/clients.mock'

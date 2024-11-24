@@ -4,10 +4,13 @@ import { ClientsRepositoryImpl } from '../infraestructure/repositories/clients.r
 import { ArrayDBClientsDatasourceImpl } from '../infraestructure/datasources/arrayDB.clients.datasource.impl'
 
 export const getRoutes = (): Router => {
+  // DI Inyección de dependencias manual en cascada
   const router = Router()
   const clientsDatasource = new ArrayDBClientsDatasourceImpl()
   const clientsRepository = new ClientsRepositoryImpl(clientsDatasource)
   const clientsController = new ClientsController(clientsRepository)
+
+  // Rutas de clientes
   router.get('/clients/sort', clientsController.GetClientsSortByCredits)
   router.get('/clients/email/:email', clientsController.GetClientByEmail)
   router.get('/clients/:id', clientsController.GetClientById)
@@ -16,5 +19,6 @@ export const getRoutes = (): Router => {
   router.put('/clients/:id', clientsController.UpdateClient)
   router.delete('/clients/:id', clientsController.DeleteClient)
   router.put('/clients/:id/credits', clientsController.UpdateCredits)
+
   return router
 }

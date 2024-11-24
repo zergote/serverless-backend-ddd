@@ -1,3 +1,7 @@
+/**
+ * Representa la entidad de clientes con operaciones de comprobacion de datos básicos
+ * y operaciones específicas del dominio.
+ */
 interface IProps {
   id: string
   name: string

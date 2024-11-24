@@ -1,3 +1,7 @@
+/**
+ * Representa el DTO de clientes con operaciones de validacion de datos básicos
+ * y operaciones específicas del dominio.
+ */
 interface IProps {
   id?: string
   name: string

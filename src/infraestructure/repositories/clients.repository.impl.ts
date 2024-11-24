@@ -1,3 +1,6 @@
+/**
+ * Representa el repositorio de clientes con el datasource de clientes aislando la implementacion especifica de la base de datos del dominio.
+ */
 import { ClientsRepository } from '../../domain/repositories/clients.repository'
 import { ClientsDatasource } from '../../domain/datasources/clients.datasource'
 import { ClientEntity } from '../../domain/entities/client.entity'

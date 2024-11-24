@@ -1,3 +1,8 @@
+/**
+ * Representa el datasource de clientes con operaciones CRUD básicas
+ * y operaciones específicas del dominio.
+ * @interface
+ */
 import { ClientDto } from '../dtos/client.dto'
 import { ClientEntity } from '../entities/client.entity'
 
