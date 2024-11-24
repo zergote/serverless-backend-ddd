@@ -1,4 +1,4 @@
-interface Props {
+interface IProps {
   id: string
   name: string
   email: string
@@ -13,7 +13,7 @@ export class ClientEntity {
   public availableCredit: number
   public createdAt: Date
 
-  constructor (props: Props) {
+  constructor (props: IProps) {
     this.validate(props)
     this.id = props.id
     this.name = props.name
@@ -22,7 +22,7 @@ export class ClientEntity {
     this.createdAt = props.createdAt
   }
 
-  validate (props: Props): Props {
+  validate (props: IProps): IProps {
     const { id, name, email, availableCredit, createdAt } = props
 
     if (id === '' || name === '' || email === '' ||

@@ -1,4 +1,4 @@
-interface Props {
+interface IProps {
   id?: string
   name: string
   email: string
@@ -11,14 +11,14 @@ export class ClientDto {
   email: string
   availableCredit: number
 
-  constructor (props: Props) {
+  constructor (props: IProps) {
     const { name, email, availableCredit } = this.validate(props)
     this.name = name
     this.email = email
     this.availableCredit = availableCredit
   }
 
-  validate (props: Props): Props {
+  validate (props: IProps): IProps {
     if (props.name === '') {
       throw new Error('Name is required')
     }
