@@ -1,7 +1,7 @@
 import { ClientDto } from '../dtos/client.dto'
 import { ClientEntity } from '../entities/client.entity'
 
-export abstract class ClientsDatasource {
+export abstract class ClientRepository {
   abstract createClient (client: ClientDto): Promise<void>
   abstract getClients (): Promise<ClientEntity[]>
   abstract getClientById (id: string): Promise<ClientEntity | null>
