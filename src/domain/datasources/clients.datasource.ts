@@ -8,4 +8,6 @@ export abstract class ClientsDatasource {
   abstract getClientByEmail (email: string): Promise<ClientEntity | undefined>
   abstract updateClient (id: string, client: ClientDto): Promise<void>
   abstract deleteClient (id: string): Promise<void>
+  abstract updateCredits (id: string, credits: number): Promise<void>
+  abstract getClientsSortByCredits (): Promise<ClientEntity[]>
 }

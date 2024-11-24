@@ -10,8 +10,7 @@ export class CreateClientUseCase implements ICreateClientUseCase {
 
   async execute (clientDto: ClientDto): Promise<void> {
     const clientExists = await this.clientRepository.getClientByEmail(clientDto.email)
-
-    if (clientExists === undefined) {
+    if (clientExists !== undefined) {
       throw new Error('Client already exists')
     }
     const client = await this.clientRepository.createClient(clientDto)
