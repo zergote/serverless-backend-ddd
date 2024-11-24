@@ -1,6 +1,6 @@
 import { ClientDto } from '../../dtos/client.dto'
 import { ClientEntity } from '../../entities/client.entity'
-import { ClientRepository } from '../../repositories/client.repository'
+import { ClientRepository } from '../../repositories/clients.repository'
 
 interface ICreateClientUseCase {
   execute: (clientDto: ClientDto) => Promise<ClientEntity | undefined>

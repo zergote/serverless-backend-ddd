@@ -1,4 +1,4 @@
-import { CreateClientUseCase } from './clients/create-client.use-case'
+import { CreateClientUseCase } from './clients/create-client'
 
 export const clientUseCases = {
   CreateClientUseCase

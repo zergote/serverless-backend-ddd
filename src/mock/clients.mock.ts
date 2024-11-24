@@ -1,12 +1,5 @@
-interface Client {
-  id: string
-  name: string
-  email: string
-  availableCredit: number
-  createdAt: Date
-}
 
-export const clientsMock: Client[] = [
+const clients = [
   {
     id: '1',
     name: 'Client 1',
@@ -43,3 +36,4 @@ export const clientsMock: Client[] = [
     createdAt: new Date()
   }
 ]
+export default clients

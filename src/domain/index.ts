@@ -1,5 +1,5 @@
 export * from './entities/client.entity'
-export * from './datasources/client.datasource'
+export * from './datasources/clients.datasource'
 export * from './dtos/client.dto'
-export * from './repositories/client.repository'
+export * from './repositories/clients.repository'
 export * from './use-cases'
