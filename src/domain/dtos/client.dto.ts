@@ -22,7 +22,7 @@ export class ClientDto {
     this.availableCredit = availableCredit
   }
 
-  validate (props: IProps): IProps {
+  private validate (props: IProps): IProps {
     if (props.name === '') {
       throw new Error('Name is required')
     }
