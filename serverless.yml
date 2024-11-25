@@ -6,6 +6,12 @@ provider:
   name: aws
   runtime: nodejs18.x
   region: eu-west-3
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:*
+      Resource:
+        - arn:aws:dynamodb:eu-west-3:148761682382:table/ClientsTable
 
 functions:
   api:

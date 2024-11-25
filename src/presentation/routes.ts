@@ -1,12 +1,12 @@
 import { Router } from 'express'
 import { ClientsController } from './clients/controller'
 import { ClientsRepositoryImpl } from '../infraestructure/repositories/clients.repository.impl'
-import { ArrayDBClientsDatasourceImpl } from '../infraestructure/datasources/arrayDB.clients.datasource.impl'
+import { DynamoDBClientsDatasourceImpl } from '../infraestructure/datasources/dynamoDB.clients.datasource.impl'
 
 export const getRoutes = (): Router => {
   // DI Inyección de dependencias manual en cascada
   const router = Router()
-  const clientsDatasource = new ArrayDBClientsDatasourceImpl()
+  const clientsDatasource = new DynamoDBClientsDatasourceImpl()
   const clientsRepository = new ClientsRepositoryImpl(clientsDatasource)
   const clientsController = new ClientsController(clientsRepository)
 
