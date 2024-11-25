@@ -9,7 +9,11 @@ import AWS from 'aws-sdk'
 
 export class DynamoDBClientsDatasourceImpl implements ClientsDatasource {
 
-  private dynamoDBClient = new AWS.DynamoDB.DocumentClient()
+  private dynamoDBClient: AWS.DynamoDB.DocumentClient
+
+  constructor () {
+    this.dynamoDBClient = new AWS.DynamoDB.DocumentClient()
+  }
 
   async createClient (client: ClientDto): Promise<void> {
     const id = idGeneratorPlugin()
@@ -41,6 +45,7 @@ export class DynamoDBClientsDatasourceImpl implements ClientsDatasource {
     const clients = await this.dynamoDBClient.scan({
       TableName: 'ClientsTable'
     }).promise()
+
     return clients.Items?.map(client => new ClientEntity({
       id: client.id as string,
       name: client.name as string,
