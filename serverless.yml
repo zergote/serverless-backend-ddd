@@ -1,0 +1,16 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: xyges
+service: serverless-crud-motorbikes-clients
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+
+functions:
+  api:
+    handler: dist/lambda.handler
+    events:
+      - http:
+          path: /{proxy+}
+          method: ANY
