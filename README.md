@@ -95,7 +95,7 @@ serverless deploy
 
 ## API Usage Important Note
 
-⚠️ **Important**: When making GET requests to the API endpoints, do not include a request body. AWS Lambda will reject requests that include a body with GET methods. Use query parameters or URL parameters instead.
+⚠️ **Important**: When making GET requests to the API endpoints, do not include a request body. AWS Lambda will reject requests that include a body with GET methods.
 
 ## Database Evolution
 
