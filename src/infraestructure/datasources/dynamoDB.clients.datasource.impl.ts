@@ -17,11 +17,14 @@ export class DynamoDBClientsDatasourceImpl implements ClientsDatasource {
 
   async createClient (client: ClientDto): Promise<void> {
     const id = idGeneratorPlugin()
-    const createdAt = new Date()
-    const clientToSave = new ClientEntity({ id, ...client, createdAt })
+    const createdAt = new Date().toISOString()
+    const clientToSave = new ClientEntity({ id, ...client, createdAt: new Date(createdAt) })
     await this.dynamoDBClient.put({
       TableName: 'ClientsTable',
-      Item: clientToSave
+      Item: {
+        ...clientToSave,
+        createdAt
+      }
     }).promise()
   }
 
@@ -35,7 +38,7 @@ export class DynamoDBClientsDatasourceImpl implements ClientsDatasource {
       name: client.name as string,
       email: client.email as string,
       availableCredit: client.availableCredit as number,
-      createdAt: client.createdAt as Date
+      createdAt: new Date(client.createdAt as string)
     })) || []
     return clientsSorted
   }
@@ -51,7 +54,7 @@ export class DynamoDBClientsDatasourceImpl implements ClientsDatasource {
       name: client.name as string,
       email: client.email as string,
       availableCredit: client.availableCredit as number,
-      createdAt: client.createdAt as Date
+      createdAt: new Date(client.createdAt as string)
     })) || []
   }
 
@@ -92,7 +95,7 @@ export class DynamoDBClientsDatasourceImpl implements ClientsDatasource {
       name: client.Item?.name as string,
       email: client.Item?.email as string,
       availableCredit: client.Item?.availableCredit as number,
-      createdAt: client.Item?.createdAt as Date
+      createdAt: new Date(client.Item?.createdAt as string)
     })
   }
 
@@ -109,7 +112,7 @@ export class DynamoDBClientsDatasourceImpl implements ClientsDatasource {
       name: client.name as string,
       email: client.email as string,
       availableCredit: client.availableCredit as number,
-      createdAt: client.createdAt as Date
+      createdAt: new Date(client.createdAt as string)
     })
   }
 

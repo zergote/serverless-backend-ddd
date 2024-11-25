@@ -44,7 +44,7 @@ describe('CreateClientUseCase', () => {
       availableCredit: 0,
       createdAt: new Date()
     }));
-    await expect(createClientUseCase.execute(clientDto)).rejects.toThrow('Client already exists');
+    await expect(createClientUseCase.execute(clientDto)).rejects.toThrow('Client email already exists');
   });
 
   it('should throw an error if the client email is invalid', async () => {
