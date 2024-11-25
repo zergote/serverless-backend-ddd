@@ -43,11 +43,11 @@ describe('ClientsDatasource', () => {
   })
 
   it('should call createClient method', async () => {
-    const mockClient: ClientDto = {
+    const mockClient = new ClientDto({
       name: 'Test Client',
       email: 'test@test.com',
       availableCredit: 1000
-    }
+    })
 
     await mockClientsDatasource.createClient(mockClient)
 
