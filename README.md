@@ -4,7 +4,7 @@ A serverless REST API for managing motorcycle clients built with Node.js, TypeSc
 
 ## Overview
 
-This project implements a CRUD API following Domain-Driven Design (DDD) principles. Initially developed with a simulated database, it was later migrated to use AWS DynamoDB for persistence.
+This project implements a CRUD API following Domain-Driven Design (DDD) principles and uses AWS DynamoDB for persistence.
 
 ## Technologies
 
