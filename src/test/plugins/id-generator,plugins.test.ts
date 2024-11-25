@@ -7,4 +7,9 @@ describe('IdGeneratorPlugin', () => {
     console.log(id)
     expect(id).toBeDefined()
   })
+
+  it('Length of the id should be 36', () => {
+    const id = idGeneratorPlugin()
+    expect(id.length).toBe(36)
+  })
 })
