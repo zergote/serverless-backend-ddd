@@ -24,6 +24,15 @@ export class ClientEntity {
     this.email = props.email
     this.availableCredit = props.availableCredit
     this.createdAt = props.createdAt
+
+    if (isNaN(props.availableCredit)) {
+      throw new Error('Available credit is required');
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(props.email)) {
+      throw new Error('Email is required and must be valid');
+    }
   }
 
   validate (props: IProps): IProps {
