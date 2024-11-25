@@ -14,3 +14,4 @@ async function main (): Promise<void> {
     router: getRoutes()
   })
 }
+export { main }
