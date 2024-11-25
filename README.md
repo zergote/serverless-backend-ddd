@@ -97,15 +97,37 @@ serverless deploy
 
 ⚠️ **Important**: When making GET requests to the API endpoints, do not include a request body. AWS Lambda will reject requests that include a body with GET methods.
 
+## API Documentation
+
+### Base URL
+`https://jvclgdmuyl.execute-api.eu-west-3.amazonaws.com/dev`
+
+### Available Endpoints
+
+#### Clients
+- `GET /clients` - Retrieve all clients
+- `GET /clients/sort` - Get clients sorted by credits
+- `GET /clients/email/:email` - Find client by email
+- `GET /clients/:id` - Get client by ID
+- `POST /clients` - Create new client
+- `PUT /clients/:id` - Update client information
+- `DELETE /clients/:id` - Remove client
+- `PUT /clients/:id/credits` - Update client's credits
+
+#### Sample Response
+```json
+{
+    "id": "05576d50-39ab-444f-b986-b268f76f315e",
+    "name": "Christian Yánez",
+    "email": "christian@yanezc.com",
+    "availableCredit": 1000,
+    "createdAt": "2024-11-25T13:34:22.988Z"
+}
+```
+
 ## Database Evolution
 
 The project was initially developed using a simulated in-memory database to facilitate rapid development and testing. Later, it was enhanced to use AWS DynamoDB for production-grade persistence.
-
-This approach allowed for:
-- Faster initial development
-- Easy testing without external dependencies
-- Smooth transition to production database
-- Validation of business logic before infrastructure implementation
 
 ## License
 
